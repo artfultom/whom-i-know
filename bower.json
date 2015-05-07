@@ -1,0 +1,13 @@
+{
+  "name": "whom-i-know",
+  "description": "",
+  "version": "0.1.0",
+  "homepage": "",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery": "2.1.3",
+    "d3": "3.5.5",
+    "bootstrap": "3.3.2"
+  }
+}

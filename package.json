@@ -1,0 +1,31 @@
+{
+    "name": "whom-i-know",
+    "private": true,
+    "version": "0.1.0",
+    "description": "",
+    "repository": "",
+    "license": "MIT",
+    "devDependencies": {
+        "bower": "1.4.1",
+        "del": "^1.1.1",
+        "gulp": "^3.8.11",
+        "gulp-concat": "^2.5.2",
+        "gulp-minify-css": "^1.1.0",
+        "gulp-uglify": "^1.2.0",
+        "gulp-usemin": "^0.3.11",
+        "http-server": "0.8.0",
+        "jasmine-core": "^2.3.0",
+        "karma": "^0.12.31",
+        "karma-firefox-launcher": "^0.1.4",
+        "karma-jasmine": "^0.3.5"
+    },
+    "scripts": {
+        "postinstall": "bower install",
+        "prestart": "npm install",
+        "preupdate-webdriver": "npm install",
+        "update-webdriver": "webdriver-manager update",
+        
+        "start": "http-server -a localhost -p 8000 -c-1",
+        "test": "karma start karma.conf.js"
+    }
+}
