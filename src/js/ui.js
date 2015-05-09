@@ -136,8 +136,8 @@ var ui = function() {
                     return false;
                 }
 
-                $('div.result-panels div.result-panel').hide();
-                panel.show();
+                $('div.result-panels div.result-panel').removeClass('active');
+                panel.addClass('active');
 
                 return true;
             },

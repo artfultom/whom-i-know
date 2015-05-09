@@ -26,6 +26,10 @@ text {
 	display: none;
 }
 
+.result-panel.active {
+	display: block;
+}
+
 span.glyphicon.count-icon {
 	display: none;
 	font-size: 32px; 
