@@ -15,7 +15,7 @@ text {
 }
 
 .margin-top {
-	height: 10%;
+	margin-top: 40px;
 }
 
 .container {
@@ -31,7 +31,6 @@ text {
 }
 
 span.glyphicon.count-icon {
-	display: none;
 	font-size: 32px; 
 	color: green;
 }

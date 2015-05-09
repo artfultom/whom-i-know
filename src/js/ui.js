@@ -142,16 +142,31 @@ var ui = function() {
                 return true;
             },
             count: function(data) {
-                // TODO undefined - больше глубины
-                var count = data.sequences[0] ? data.sequences[0].length : undefined
+                var count = data.sequences[0] ? (data.sequences[0].length - 2) : 'до хрена';
 
-                var span = $('div.result-panels div.result-panel span.count-icon');
-                if (span.length === 0) {
+                var panel = $('div.result-panels div.result-panel#count');
+                if (panel.length === 0) {
                     return false;
                 }
 
-                span.show();
-                span.text(count);
+                panel.empty();
+
+                var firstRow = $('<div>');
+                firstRow.addClass('margin-top');
+
+                $.each(Array(count), function() {
+                    var icon = $('<span>');
+                    icon.addClass('glyphicon glyphicon-user count-icon');
+
+                    firstRow.append(icon);
+                });
+
+                var secondRow = $('<div>');
+
+                var usersStr = String(count).slice(-1) === '1' ? 'пользователя' : 'пользователей';
+                secondRow.append('<span>Вы знакомы через ' + count + ' ' + usersStr + '</span>');
+
+                panel.append(firstRow, secondRow);
 
                 return true;
             },
