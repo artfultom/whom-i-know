@@ -151,8 +151,10 @@ var ui = function() {
 
                 panel.empty();
 
+                var zeroRow = $('<div>');
+                zeroRow.addClass('empty-row');
+
                 var firstRow = $('<div>');
-                firstRow.addClass('margin-top');
 
                 $.each(Array(count), function() {
                     var icon = $('<span>');
@@ -166,7 +168,7 @@ var ui = function() {
                 var usersStr = String(count).slice(-1) === '1' ? 'пользователя' : 'пользователей';
                 secondRow.append('<span>Вы знакомы через ' + count + ' ' + usersStr + '</span>');
 
-                panel.append(firstRow, secondRow);
+                panel.append(zeroRow, firstRow, secondRow);
 
                 return true;
             },

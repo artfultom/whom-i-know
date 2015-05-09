@@ -15,7 +15,7 @@ text {
 }
 
 .margin-top {
-	margin-top: 40px;
+	height: 10%;
 }
 
 .container {
@@ -28,6 +28,10 @@ text {
 
 .result-panel.active {
 	display: block;
+}
+
+div.empty-row {
+	height: 30px;
 }
 
 span.glyphicon.count-icon {
