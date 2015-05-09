@@ -72,11 +72,13 @@ var search = function() {
             if (name === undefined || name === '') {
                 console.error('search.buildTree - Пустое имя (options.name)');
                 callback();
+                return;
             }
 
             if (depth === undefined || depth <= 0) {
                 console.error('search.buildTree - Не задана глубина обхода (options.depth)');
                 callback();
+                return;
             }
 
             search.getUsers(name, function(user) {
@@ -93,6 +95,7 @@ var search = function() {
 
                 if (depth === 1) {
                     callback(tree);
+                    return;
                 }
 
                 (function getLevel(parents, depthCount) {
@@ -141,11 +144,13 @@ var search = function() {
             if (name === undefined || name === '') {
                 console.error('search.findCommonUsers - Пустое имя (options.name)');
                 callback();
+                return;
             }
 
             if (depth === undefined || depth <= 0) {
                 console.error('search.findCommonUsers - Не задана глубина обхода (options.depth)');
                 callback();
+                return;
             }
 
             var resultArray = [];
@@ -193,7 +198,8 @@ var search = function() {
         },
         convert: function(sequences, callback) {
             if (sequences === undefined || sequences.length === 0) {
-                return [];
+                callback();
+                return;
             }
 
             var minLength;

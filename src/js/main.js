@@ -86,11 +86,15 @@ $(document).ready(function() {
 
                 search.findCommonUsers(tree, options, function(users) {
                     search.convert(users, function(data) {
-                        ui.panel.write(data);
-                        ui.panel.count(data);
-                        ui.panel.draw(data);
+                        if (data) {
+                            ui.panel.write(data);
+                            ui.panel.count(data);
+                            ui.panel.draw(data);
 
-                        ui.enableModes();
+                            ui.enableModes();
+                        }
+
+                        ui.hideProgress();
                     });
                 });
             });

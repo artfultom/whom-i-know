@@ -12,7 +12,7 @@ var ui = function() {
 
             return true;
         },
-        enableModes: function() {
+        hideProgress: function() {
             var bar = $('div.search-result-bar');
             if (bar.length === 0) {
                 return false;
@@ -20,6 +20,8 @@ var ui = function() {
 
             bar.removeClass('progress-mode');
 
+        },
+        enableModes: function() {
             var buttons = $('div.search-result-bar label.btn');
             if (buttons.length === 0) {
                 return false;
