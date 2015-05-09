@@ -197,7 +197,8 @@ var ui = function() {
                 return true;
             },
             draw: function(data) {
-                $('div.result-panels div.result-panel#draw svg').remove();
+                var panel = $('div.result-panels div.result-panel#draw');
+                panel.empty();
 
                 var pairs = [];
 
@@ -244,7 +245,7 @@ var ui = function() {
                     });
                 });
 
-                var width = 600, height = 400;
+                var width = panel.closest('.container').width(), height = width * 0.6;
 
                 var force = d3.layout.force()
                     .nodes(d3.values(nodes))
