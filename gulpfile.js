@@ -39,4 +39,7 @@ gulp.task('build', function () {
 
     gulp.src('src/bower_components/bootstrap/fonts/*')
         .pipe(gulp.dest('dist/fonts'));
+
+    gulp.src('src/bower_components/jquery/dist/jquery.min.map')
+        .pipe(gulp.dest('dist/js'));
 });
