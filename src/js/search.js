@@ -41,11 +41,19 @@ var search = function() {
     };
 
     return {
-        getUsers: function(nickname, callback) {
-            if (nickname === '') {
+        getUsers: function(nicknames, callback) {
+            if (nicknames === '') {
                 callback(undefined);
             } else {
-                $.getJSON(usersGetUrl.format(nickname), function(result) {
+                nicknames = nicknames.toString().split(',').map(function(id) {
+                    return Number(id) || id;
+                });
+
+                nicknames = nicknames.filter(function(item, pos, self) {
+                    return self.indexOf(item) == pos;
+                });
+
+                $.getJSON(usersGetUrl.format(nicknames), function(result) {
                     if (result.error) {
                         callback(false);
                     } else {
@@ -220,8 +228,8 @@ var search = function() {
                 return (item.length === minLength);
             });
 
-            sequences = sequences.filter(function(item, index) {
-                return sequences.filter(function(item1, index1) {
+            sequences = sequences.filter(function(item, index, self) {
+                return self.filter(function(item1, index1) {
                     return index > index1 && item.every(function(id, idIndex) {
                         return item[idIndex] === item1[idIndex];
                     });
