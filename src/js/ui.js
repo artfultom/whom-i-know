@@ -214,6 +214,13 @@ var ui = function() {
                 var panel = $('div.result-panels div.result-panel#draw');
                 panel.empty();
 
+                var firstUser, secondUser;
+                var sequence = data.sequences[0];
+                if (sequence) {
+                    firstUser = sequence[0];
+                    secondUser = sequence[sequence.length - 1];
+                }
+
                 var pairs = [];
 
                 data.sequences.forEach(function(item) {
@@ -311,7 +318,10 @@ var ui = function() {
                     .data(force.nodes())
                     .enter().append('circle')
                     .attr('r', 8)
-                   .call(force.drag);
+                    .attr('class', function(d) {
+                        if (d.name === firstUser || d.name === secondUser) return 'red';
+                    })
+                    .call(force.drag);
 
                 var text = svg.append('g').selectAll('text')
                     .data(force.nodes())

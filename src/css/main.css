@@ -8,6 +8,10 @@ circle {
 	stroke-width: 1.5px;
 }
 
+circle.red {
+	fill: red;
+}
+
 text {
 	font: 10px sans-serif;
 	pointer-events: none;
