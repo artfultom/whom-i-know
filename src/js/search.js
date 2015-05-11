@@ -41,9 +41,9 @@ var search = function() {
     };
 
     return {
-        getUsers: function(nicknames, callback) {
+        getUsers: function(nicknames, success, error) {
             if (nicknames === '') {
-                callback(undefined);
+                error();
             } else {
                 nicknames = nicknames.toString().split(',').map(function(id) {
                     return Number(id) || id;
@@ -55,9 +55,9 @@ var search = function() {
 
                 $.getJSON(usersGetUrl.format(nicknames), function(result) {
                     if (result.error) {
-                        callback(false);
+                        success(false);
                     } else {
-                        callback(result.response);
+                        success(result.response);
                     }
                 });
             }

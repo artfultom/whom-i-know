@@ -14,11 +14,6 @@ $(document).ready(function() {
 
                     users[0] = undefined;
                     break;
-                case undefined:
-                    ui.clean(firstInput);
-
-                    users[0] = undefined;
-                    break;
                 default:
                     ui.correct(firstInput);
 
@@ -30,6 +25,10 @@ $(document).ready(function() {
             } else {
                 ui.searchOff();
             }
+        }, function() {
+            ui.clean(firstInput);
+
+            users[0] = undefined;
         });
     });
 
@@ -44,11 +43,6 @@ $(document).ready(function() {
 
                     users[1] = undefined;
                     break;
-                case undefined:
-                    ui.clean(secondInput);
-
-                    users[1] = undefined;
-                    break;
                 default:
                     ui.correct(secondInput);
 
@@ -60,6 +54,10 @@ $(document).ready(function() {
             } else {
                 ui.searchOff();
             }
+        }, function() {
+            ui.clean(secondInput);
+
+            users[1] = undefined;
         });
     });
 
