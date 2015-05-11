@@ -70,11 +70,11 @@ $(document).ready(function() {
     });
 
     $('button#search').click(function() {
-        ui.showProgress();
-
         var depth = 3;
 
         if (users[0] !== users[1]) {
+            ui.showProgress();
+
             search.buildTree({
                 name: users[0],
                 depth: depth
@@ -92,6 +92,8 @@ $(document).ready(function() {
                             ui.panel.draw(data);
 
                             ui.enableModes();
+                        } else {
+                            ui.notFound();
                         }
 
                         ui.hideProgress();

@@ -91,13 +91,13 @@
 
     <center></center>
 
-    <!-- Modal begins -->
-    <div class="modal fade" id="startModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!-- Start modal begins -->
+    <div class="modal fade" id="startModal" tabindex="-1" role="dialog" aria-labelledby="startModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Начать поиск?</h4>
+                    <h4 class="modal-title" id="startModalLabel">Начать поиск?</h4>
                 </div>
                 <div class="modal-body">
                     При поиске всё будет люто тормозить.
@@ -109,7 +109,26 @@
             </div>
         </div>
     </div>
-    <!-- Modal ends -->
+    <!-- Start modal ends -->
+
+    <!-- Empty modal begins -->
+    <div class="modal fade" id="emptyModal" tabindex="-1" role="dialog" aria-labelledby="emptyModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="emptyModalLabel">Поиск завершен</h4>
+                </div>
+                <div class="modal-body">
+                    Общие пользователи не найдены.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Empty modal ends -->
 
     <!-- build:js_lib js/libs.min.js -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>

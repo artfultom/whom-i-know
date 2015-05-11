@@ -21,6 +21,16 @@ var ui = function() {
             bar.removeClass('progress-mode');
 
         },
+        notFound: function() {
+            var modal = $('#emptyModal');
+            if (modal.length === 0) {
+                return false;
+            }
+
+            modal.modal();
+
+            return true;
+        },
         enableModes: function() {
             var buttons = $('div.search-result-bar label.btn');
             if (buttons.length === 0) {
