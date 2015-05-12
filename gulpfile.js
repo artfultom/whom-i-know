@@ -11,6 +11,10 @@ gulp.task('default', ['clean', 'test'], function() {
     gulp.start('build');
 });
 
+gulp.task('install', ['clean'], function() {
+    gulp.start('build');
+});
+
 gulp.task('clean', function(cb) {
     del(['dist/*'], cb);
 });
