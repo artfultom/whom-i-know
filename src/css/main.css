@@ -18,6 +18,16 @@ text {
 	text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
 }
 
+.github-fork-ribbon-wrapper.left .github-fork-ribbon {
+	opacity: 0.5;
+	left: -64px;
+    top: 21px;
+}
+
+.github-fork-ribbon-wrapper.left .github-fork-ribbon a {
+	line-height: 15px;
+}
+
 .margin-top {
 	height: 10%;
 }

@@ -32,7 +32,7 @@ gulp.task('build', function () {
         .pipe(usemin({
             css: [minifyCss()],
             js: [uglify()],
-            css_lib: [],
+            css_lib: [minifyCss()],
             js_lib: [],
         }))
         .pipe(gulp.dest('dist/'));
