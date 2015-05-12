@@ -2,7 +2,6 @@ var gulp = require('gulp'),
     minifyCss = require('gulp-minify-css'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
-    replace = require('gulp-replace'),
     del = require('del'),
     karma = require('karma').server
     usemin = require('gulp-usemin');
