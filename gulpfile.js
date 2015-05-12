@@ -2,7 +2,8 @@ var gulp = require('gulp'),
     minifyCss = require('gulp-minify-css'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
-    del = require('del')
+    replace = require('gulp-replace'),
+    del = require('del'),
     karma = require('karma').server
     usemin = require('gulp-usemin');
 
@@ -32,7 +33,8 @@ gulp.task('build', function () {
         .pipe(usemin({
             css: [minifyCss()],
             js: [uglify()],
-            css_lib: [minifyCss()],
+            css_lib: [],
+            css_lib_min: [minifyCss()],
             js_lib: [],
         }))
         .pipe(gulp.dest('dist/'));
