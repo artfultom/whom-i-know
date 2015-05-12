@@ -6,3 +6,9 @@ Demo: http://artfultom.github.io/whom-i-know
 ```
 $ npm start
 ```
+
+## Build (and test) without run
+
+```
+$ gulp
+```
