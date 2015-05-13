@@ -42,7 +42,7 @@ var ui = function() {
             return true;
         },
         searchOn: function() {
-            var button = $('button#modal');
+            var button = $('.search-button button');
             if (button.length === 0) {
                 return false;
             }
@@ -52,13 +52,26 @@ var ui = function() {
             return true;
         },
         searchOff: function() {
-            var button = $('button#modal');
+            var button = $('.search-button button');
             if (button.length === 0) {
                 return false;
             }
 
             button.attr('disabled','disabled');
 
+            return true;
+        },
+        count: function(count) {
+            var span = $('.search-button button.dropdown-toggle span.count');
+            if (span.length === 0) {
+                return false;
+            }
+
+            if (count === undefined) {
+                return span.text();
+            }
+
+            span.text(count);
             return true;
         },
         clean: function($input) {

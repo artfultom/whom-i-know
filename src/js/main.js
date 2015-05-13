@@ -1,6 +1,9 @@
 'use strict';
 
 $(document).ready(function() {
+    var length = parseInt(httpUtils.getParam('length')) || 4;
+    ui.count(length);
+
     var users = [];
 
     var firstInput = $('input#first');
@@ -19,13 +22,14 @@ $(document).ready(function() {
 
                     users[0] = value.target.value;
             }
-
+            
             if ((users[0] && users[1]) && (users[0] !== users[1])) {
                 ui.searchOn();
             } else {
                 ui.searchOff();
             }
         }, function() {
+            ui.searchOff();
             ui.clean(firstInput);
 
             users[0] = undefined;
@@ -55,6 +59,7 @@ $(document).ready(function() {
                 ui.searchOff();
             }
         }, function() {
+            ui.searchOff();
             ui.clean(secondInput);
 
             users[1] = undefined;
@@ -63,23 +68,29 @@ $(document).ready(function() {
 
     $('input').keyup();
 
+    $('.search-button ul.dropdown-menu a').click(function(event) {
+        length = $(event.target).data('length');
+        location.hash = 'length=' + length;
+        ui.count(length);
+    });
+
     $('label.btn-radio').bind('change', function(event) {
         ui.panel.changePanel($(event.target).data('panel'));
     });
 
     $('button#search').click(function() {
-        var depth = 3;
+        var depth = (length + 1) / 2;
 
         if (users[0] !== users[1]) {
             ui.showProgress();
 
             search.buildTree({
                 name: users[0],
-                depth: depth
+                depth: Math.ceil(depth)
             }, function(tree) {
                 var options = {
                     name: users[1],
-                    depth: depth
+                    depth: Math.floor(depth)
                 };
 
                 search.findCommonUsers(tree, options, function(users) {

@@ -36,6 +36,18 @@ text {
 	max-width: 600px;
 }
 
+.search-button {
+	width: 100%;
+}
+
+.search-button button[data-target] {
+	width: calc(100% - 38px);
+}
+
+.search-button button.dropdown-toggle span.count {
+	width: 38px;
+}
+
 .result-panel {
 	display: none;
 }
