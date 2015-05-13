@@ -48,6 +48,10 @@ text {
 	width: 38px;
 }
 
+ul.dropdown-menu li {
+	cursor: pointer;
+}
+
 .result-panel {
 	display: none;
 }
