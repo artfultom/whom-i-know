@@ -2,24 +2,26 @@
 
 var ui = function() {
     return {
-        showProgress: function() {
-            var bar = $('div.search-result-bar');
-            if (bar.length === 0) {
+        progress: function(percents) {
+            var resultBar = $('div.search-result-bar');
+            if (resultBar.length === 0) {
                 return false;
             }
 
-            bar.addClass('progress-mode');
+            if (percents === 100) {
+                resultBar.removeClass('progress-mode');
+            } else {
+                resultBar.addClass('progress-mode');
+
+                var progressBar = resultBar.find('.progress-bar');
+                if (progressBar.length === 0) {
+                    return false;
+                }
+
+                progressBar.width(percents + '%');
+            }
 
             return true;
-        },
-        hideProgress: function() {
-            var bar = $('div.search-result-bar');
-            if (bar.length === 0) {
-                return false;
-            }
-
-            bar.removeClass('progress-mode');
-
         },
         notFound: function() {
             var modal = $('#emptyModal');

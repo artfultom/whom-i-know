@@ -82,19 +82,25 @@ $(document).ready(function() {
         var depth = (length + 1) / 2;
 
         if (users[0] !== users[1]) {
-            ui.showProgress();
+            ui.progress(0);
 
             search.buildTree({
                 name: users[0],
                 depth: Math.ceil(depth)
             }, function(tree) {
+                ui.progress(30);
+
                 var options = {
                     name: users[1],
                     depth: Math.floor(depth)
                 };
 
                 search.findCommonUsers(tree, options, function(users) {
+                    ui.progress(80);
+
                     search.convert(users, function(data) {
+                        ui.progress(90);
+
                         if (data) {
                             ui.panel.write(data);
                             ui.panel.count(data);
@@ -105,7 +111,7 @@ $(document).ready(function() {
                             ui.notFound();
                         }
 
-                        ui.hideProgress();
+                        ui.progress(100);
                     });
                 });
             });
