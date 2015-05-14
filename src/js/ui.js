@@ -8,15 +8,17 @@ var ui = function() {
                 return false;
             }
 
+            var progressBar = resultBar.find('.progress-bar');
+            if (progressBar.length === 0) {
+                return false;
+            }
+
             if (percents === 100) {
                 resultBar.removeClass('progress-mode');
+                
+                progressBar.width(0);
             } else {
                 resultBar.addClass('progress-mode');
-
-                var progressBar = resultBar.find('.progress-bar');
-                if (progressBar.length === 0) {
-                    return false;
-                }
 
                 progressBar.width(percents + '%');
             }
