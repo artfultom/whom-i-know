@@ -15,7 +15,7 @@ var ui = function() {
 
             if (percents === 100) {
                 resultBar.removeClass('progress-mode');
-                
+
                 progressBar.width(0);
             } else {
                 resultBar.addClass('progress-mode');
@@ -61,7 +61,7 @@ var ui = function() {
                 return false;
             }
 
-            button.attr('disabled','disabled');
+            button.attr('disabled', 'disabled');
 
             return true;
         },
@@ -219,10 +219,24 @@ var ui = function() {
                     var li = $('<li class="list-group-item">');
 
                     row.forEach(function(user) {
-                        li.append('<a target="_blank" href="http://vk.com/id' + user.uid + '">' + [user.first_name, user.last_name].join(' ') + '</a>')
+                        var title = 'title="<img src={0}><div>Пол: {1}</div><div>ДР: {2}</div></div>"'.format(
+                            user.photo_100,
+                            user.sex === 2 ? 'мужской' : user.sex === 1 ? 'женский' : 'не говорит',
+                            user.bdate
+                        );
+
+                        var href = 'href="http://vk.com/id{0}"'.format(user.uid);
+
+                        li.append(
+                            '<a target="_blank" ' + title + ' ' + href + '>' + [user.first_name, user.last_name].join(' ') +
+                            '</a>');
                     });
 
                     group.append(li);
+                });
+
+                group.find('[title]').tooltip({
+                    html: true,
                 });
 
                 return true;
@@ -283,7 +297,8 @@ var ui = function() {
                     });
                 });
 
-                var width = panel.closest('.container').width(), height = width * 0.6;
+                var width = panel.closest('.container').width(),
+                    height = width * 0.6;
 
                 var force = d3.layout.force()
                     .nodes(d3.values(nodes))
