@@ -34,17 +34,18 @@ text {
 
 .container {
 	max-width: 600px;
+	min-width: 350px;
 }
 
 .search-button {
 	width: 100%;
 }
 
-.search-button button[data-target] {
-	width: calc(100% - 38px);
+.search-button button[data-toggle=modal] {
+	width: calc(100% - 37px);
 }
 
-.search-button button.dropdown-toggle span.count {
+.search-button button[data-toggle=dropdown] {
 	width: 38px;
 }
 
@@ -80,9 +81,8 @@ span.glyphicon.count-icon {
 	margin-bottom: 0px;
 }
 
-.list-group-item a {
-	margin-left: 10px;
-	margin-right: 10px;
+.list-group-item table {
+	width: 100%;
 }
 
 div.search-result-bar div.progress {

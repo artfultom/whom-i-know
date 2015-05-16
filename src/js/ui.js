@@ -218,6 +218,12 @@ var ui = function() {
 
                     var li = $('<li class="list-group-item">');
 
+                    var table = $('<table>');
+                    li.append(table);
+
+                    var tr = $('<tr>');
+                    table.append(tr);
+
                     row.forEach(function(user) {
                         var title = 'title="<img src={0}><div>Пол: {1}</div><div>ДР: {2}</div></div>"'.format(
                             user.photo_100,
@@ -227,9 +233,9 @@ var ui = function() {
 
                         var href = 'href="http://vk.com/id{0}"'.format(user.uid);
 
-                        li.append(
-                            '<a target="_blank" ' + title + ' ' + href + '>' + [user.first_name, user.last_name].join(' ') +
-                            '</a>');
+                        tr.append(
+                            '<td><a target="_blank" ' + title + ' ' + href + '>' + [user.first_name, user.last_name].join(' ') +
+                            '</a></td>');
                     });
 
                     group.append(li);
