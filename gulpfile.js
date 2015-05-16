@@ -3,7 +3,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
     del = require('del'),
-    karma = require('karma').server
+    inject = require('gulp-inject'),
+    karma = require('karma').server,
     usemin = require('gulp-usemin');
 
 gulp.task('default', ['clean', 'test'], function() {
@@ -33,6 +34,18 @@ gulp.task('tdd', function (done) {
 
 gulp.task('build', function () {
     gulp.src('src/index.html')
+        .pipe(inject(gulp.src(['src/analytics.html']), {
+            starttag: '<!-- inject:analytics -->',
+            transform: function (filePath, file) {
+                return file.contents.toString('utf8');
+            }
+        }))
+        .pipe(inject(gulp.src(['src/forkme.html']), {
+            starttag: '<!-- inject:forkme -->',
+            transform: function (filePath, file) {
+                return file.contents.toString('utf8');
+            }
+        }))
         .pipe(usemin({
             css: [minifyCss()],
             js: [uglify()],
