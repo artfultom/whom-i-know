@@ -65,10 +65,10 @@ var search = function() {
         getFriends: function(nickname, success, error) {
             $.getJSON(friendsGetUrl.format(nickname), function(result) {
                 success(result.response);
-            }).fail(function(error) {
+            }).fail(function(e) {
                 error();
 
-                console.log(error);
+                console.log(e);
             });
         },
         buildTree: function(options, callback) {
