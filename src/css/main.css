@@ -61,6 +61,10 @@ ul.dropdown-menu li {
 	display: block;
 }
 
+.result-panel svg {
+	width: 100%;
+}
+
 div.empty-row {
 	height: 30px;
 }

@@ -249,6 +249,10 @@ var ui = function() {
             },
             draw: function(data) {
                 var panel = $('div.result-panels div.result-panel#draw');
+                if (panel.length === 0) {
+                    return false;
+                }
+
                 panel.empty();
 
                 var firstUser, secondUser;
@@ -331,7 +335,7 @@ var ui = function() {
                     .attr('height', height);
 
                 svg.append('defs').selectAll('marker')
-                    .data(['suit', 'licensing', 'resolved'])
+                    .data([])
                     .enter().append('marker')
                     .attr('id', function(d) {
                         return d;
@@ -369,6 +373,14 @@ var ui = function() {
                     .text(function(d) {
                         return d.label;
                     });
+
+                setInterval(function() {
+                    width = panel.closest('.container').width();
+
+                    force.size([width, height]);
+                }, 2000);
+
+                return true;
             }
         }
     }
