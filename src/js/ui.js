@@ -96,9 +96,16 @@ var ui = function() {
             icon.removeClass('glyphicon-remove');
             icon.removeClass('glyphicon-refresh');
 
+            var username = container.find('.feedback-user-name');
+            if (username.length === 0) {
+                return false;
+            }
+
+            username.text('');
+
             return true;
         },
-        correct: function($input) {
+        correct: function($input, name) {
             var container = $input.closest('div.has-feedback');
             if (container.length === 0) {
                 return false;
@@ -115,6 +122,13 @@ var ui = function() {
             icon.addClass('glyphicon-ok');
             icon.removeClass('glyphicon-remove');
             icon.removeClass('glyphicon-refresh');
+
+            var username = container.find('.feedback-user-name');
+            if (username.length === 0) {
+                return false;
+            }
+
+            username.text(name);
 
             return true;
         },
@@ -135,6 +149,13 @@ var ui = function() {
             icon.addClass('glyphicon-remove');
             icon.removeClass('glyphicon-ok');
             icon.removeClass('glyphicon-refresh');
+
+            var username = container.find('.feedback-user-name');
+            if (username.length === 0) {
+                return false;
+            }
+
+            username.text('');
 
             return true;
         },

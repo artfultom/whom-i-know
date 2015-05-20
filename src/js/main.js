@@ -18,7 +18,7 @@ $(document).ready(function() {
                     users[0] = undefined;
                     break;
                 default:
-                    ui.correct(firstInput);
+                    ui.correct(firstInput, [user[0].first_name, user[0].last_name].join(' '));
 
                     users[0] = value.target.value;
             }
@@ -48,7 +48,7 @@ $(document).ready(function() {
                     users[1] = undefined;
                     break;
                 default:
-                    ui.correct(secondInput);
+                    ui.correct(secondInput, [user[0].first_name, user[0].last_name].join(' '));
 
                     users[1] = value.target.value;
             }
