@@ -239,11 +239,8 @@ var ui = function() {
 
                     var li = $('<li class="list-group-item">');
 
-                    var table = $('<table>');
+                    var table = $('<div class="item-row">');
                     li.append(table);
-
-                    var tr = $('<tr>');
-                    table.append(tr);
 
                     row.forEach(function(user) {
                         var title = 'title="<img src={0}><div>Пол: {1}</div><div>ДР: {2}</div></div>"'.format(
@@ -254,9 +251,10 @@ var ui = function() {
 
                         var href = 'href="http://vk.com/id{0}"'.format(user.uid);
 
-                        tr.append(
-                            '<td><a target="_blank" ' + title + ' ' + href + '>' + [user.first_name, user.last_name].join(' ') +
-                            '</a></td>');
+                        var cell = $('<div class="item-cell">');
+
+                        cell.append('<a target="_blank" ' + title + ' ' + href + '>' + [user.first_name, user.last_name].join(' ') + '</a>');
+                        table.append(cell);
                     });
 
                     group.append(li);

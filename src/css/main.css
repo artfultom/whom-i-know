@@ -107,6 +107,17 @@ span.glyphicon.count-icon {
     stroke-width: 1.5px;
 }
 
+li.list-group-item .item-row {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+li.list-group-item .item-row .item-cell {
+    display: table-cell;
+    text-align: center;
+}
+
 .progress {
     height: 34px;
     margin-bottom: 0px;
