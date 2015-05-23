@@ -249,7 +249,7 @@ var ui = function() {
                         var title = 'title="<img src={0}><div>Пол: {1}</div><div>ДР: {2}</div></div>"'.format(
                             user.photo_100,
                             user.sex === 2 ? 'мужской' : user.sex === 1 ? 'женский' : 'не говорит',
-                            user.bdate
+                            user.bdate || 'не говорит'
                         );
 
                         var href = 'href="http://vk.com/id{0}"'.format(user.uid);
