@@ -1,14 +1,14 @@
 {
-  "name": "whom-i-know",
-  "description": "",
-  "version": "0.4.2",
-  "homepage": "",
-  "license": "MIT",
-  "private": true,
-  "dependencies": {
-    "jquery": "2.1.3",
-    "d3": "3.5.5",
-    "bootstrap": "3.3.2",
-    "github-fork-ribbon-css": "0.1.1"
-  }
+    "name": "whom-i-know",
+    "description": "Looks for common users of vk.com",
+    "version": "0.4.2",
+    "homepage": "",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "jquery": "2.1.3",
+        "d3": "3.5.5",
+        "bootstrap": "3.3.2",
+        "github-fork-ribbon-css": "0.1.1"
+    }
 }
