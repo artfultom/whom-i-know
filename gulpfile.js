@@ -52,6 +52,7 @@ gulp.task('build', function () {
             css_lib: [],
             css_lib_min: [minifyCss()],
             js_lib: [],
+            js_lib_min: [uglify()]
         }))
         .pipe(gulp.dest('dist/'));
 
