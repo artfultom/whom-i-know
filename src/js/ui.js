@@ -393,10 +393,15 @@ var ui = function() {
                         return d.label;
                     });
 
+                var container = panel.closest('.container');
+
                 setInterval(function() {
-                    width = panel.closest('.container').width();
+                    width = container.width();
+                    height = width * 0.6;
 
                     force.size([width, height]);
+
+                    svg.attr('height', height);
                 }, 2000);
 
                 return true;
