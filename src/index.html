@@ -24,12 +24,11 @@
     <!-- inject:forkme -->
     <!-- endinject -->
 
-    <div class="margin-top"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <span class="input-group-addon">vk.com/</span>
@@ -40,9 +39,7 @@
                             <span id="firstStatus" class="sr-only">(success)</span>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <span class="input-group-addon">vk.com/</span>
@@ -55,7 +52,21 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-4 col-md-push-8">
+                        <div class="form-group btn-group search-button">
+                            <button type="button" class="btn btn-primary" id="modal" data-toggle="modal" data-target="#startModal">Поиск</button>
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="count">4</span>
+                                <span class="caret"></span>
+                                <span class="sr-only"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                <li><a data-length="4">Макс. длина цепочки: 4</a></li>
+                                <li><a data-length="5">Макс. длина цепочки: 5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-md-pull-4">
                         <div class="form-group search-result-bar">
                             <div class="btn-group btn-group-justified" role="group" data-toggle="buttons">
                                 <label class="btn btn-default btn-radio disabled">
@@ -73,20 +84,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="btn-group search-button">
-                            <button type="button" class="btn btn-primary" id="modal" data-toggle="modal" data-target="#startModal">Поиск</button>
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <span class="count">4</span>
-                                <span class="caret"></span>
-                                <span class="sr-only"></span>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                <li><a data-length="4">Макс. длина цепочки: 4</a></li>
-                                <li><a data-length="5">Макс. длина цепочки: 5</a></li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -102,8 +99,6 @@
             </center>
         </div>
     </div>
-
-    <center></center>
 
     <!-- Start modal begins -->
     <div class="modal fade" id="startModal" tabindex="-1" role="dialog" aria-labelledby="startModalLabel" aria-hidden="true">

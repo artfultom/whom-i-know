@@ -28,13 +28,13 @@ text {
     line-height: 15px;
 }
 
-.margin-top {
-    height: 10%;
+.container {
+    padding-top: 15px;
+    min-width: 350px;
 }
 
-.container {
-    max-width: 600px;
-    min-width: 350px;
+.modal-dialog {
+    min-width: 330px;
 }
 
 .feedback {
@@ -168,5 +168,24 @@ div.search-result-bar.progress-mode div.btn-group {
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+@media (min-width: 520px) {
+    .modal-dialog {
+        margin: 30px auto;
+        width: 500px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 768px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
     }
 }
