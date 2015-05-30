@@ -261,7 +261,7 @@ var ui = function() {
                 });
 
                 group.find('[title]').tooltip({
-                    html: true,
+                    html: true
                 });
 
                 return true;

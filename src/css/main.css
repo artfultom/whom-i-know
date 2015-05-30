@@ -126,6 +126,11 @@ li.list-group-item .item-row .item-cell {
     text-align: center;
 }
 
+.item-cell img {
+    width: 100px;
+    height: 100px;
+}
+
 .progress {
     height: 34px;
     margin-bottom: 0px;
