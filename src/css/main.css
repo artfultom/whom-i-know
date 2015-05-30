@@ -1,5 +1,11 @@
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/Roboto-Regular.ttf);
+}
+
 body {
     height: 100vh;
+    font-family: Roboto, arial, sans-serif;
 }
 
 circle {

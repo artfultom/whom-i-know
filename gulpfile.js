@@ -47,7 +47,7 @@ gulp.task('build', function () {
             }
         }))
         .pipe(usemin({
-            css: [minifyCss()],
+            css: [minifyCss({relativeTo: '..'})],
             js: [uglify()],
             css_lib: [],
             css_lib_min: [minifyCss()],
@@ -55,6 +55,9 @@ gulp.task('build', function () {
             js_lib_min: [uglify()]
         }))
         .pipe(gulp.dest('dist/'));
+
+    gulp.src('src/fonts/*')
+        .pipe(gulp.dest('dist/fonts'));
 
     gulp.src('src/bower_components/bootstrap/fonts/*')
         .pipe(gulp.dest('dist/fonts'));
