@@ -327,7 +327,7 @@ var ui = function() {
                 });
 
                 var width = panel.closest('.container').width(),
-                    height = width * 0.6;
+                    height = width * 0.5;
 
                 var force = d3.layout.force()
                     .nodes(d3.values(nodes))
@@ -397,7 +397,7 @@ var ui = function() {
 
                 setInterval(function() {
                     width = container.width();
-                    height = width * 0.6;
+                    height = width * 0.5;
 
                     force.size([width, height]);
 

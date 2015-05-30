@@ -6,6 +6,7 @@
 body {
     height: 100vh;
     font-family: Roboto, arial, sans-serif;
+    padding-top: 40px;
 }
 
 circle {
