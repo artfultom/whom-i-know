@@ -204,28 +204,16 @@ var search = function() {
                 })([rootId], depth);
             });
         },
-        convert: function(sequences, callback) {
+        convert: function(sequences, options, callback) {
             if (sequences === undefined || sequences.length === 0) {
                 callback();
                 return;
             }
 
-            var minLength;
-
-            if (sequences.length > 1) {
-                minLength = sequences.reduce(function(a, b) {
-                    if (a < b.length) {
-                        return a;
-                    }
-
-                    return b.length;
-                });
-            } else {
-                minLength = sequences[0].length;
-            }
+            var minLength = options.minLength;
 
             sequences = sequences.filter(function(item, index) {
-                return (item.length === minLength);
+                return (item.length >= minLength);
             });
 
             sequences = sequences.filter(function(item, index, self) {

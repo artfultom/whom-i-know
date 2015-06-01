@@ -76,11 +76,11 @@ text {
     width: 100%;
 }
 
-.search-button button[data-toggle=modal] {
+.search-button button#startButton {
     width: calc(100% - 37px);
 }
 
-.search-button button[data-toggle=dropdown] {
+.search-button button#settingButton {
     width: 38px;
 }
 

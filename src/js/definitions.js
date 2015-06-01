@@ -10,18 +10,34 @@ if (!String.prototype.format) {
 }
 
 var httpUtils = {
-    getParam: function(paramName) {
+    hashParam: function(paramName, value) {
         var sPageURL = window.location.hash.substring(1);
         var sURLVariables = sPageURL.split('&');
 
-        var result = sURLVariables
-            .filter(function(item) {
-                return item.split('=')[0] === paramName;
-            })
-            .map(function(item) {
-                return item.split('=')[1];
+        if (value === undefined) {
+            var result = sURLVariables
+                .filter(function(item) {
+                    return item.split('=')[0] === paramName;
+                })
+                .map(function(item) {
+                    return item.split('=')[1];
+                });
+
+            return result.length > 1 ? result : result[0];
+        } else {
+            var changed = sURLVariables.some(function(param, index, self) {
+                if (param.split('=')[0] === paramName) {
+                    self[index] = paramName + '=' + value;
+
+                    return true;
+                }
             });
 
-        return result.length > 1 ? result : result[0];
+            if (!changed) {
+                sURLVariables.push(paramName + '=' + value);
+            }
+
+            window.location.hash = '#' + sURLVariables.join('&');
+        }
     }
 };

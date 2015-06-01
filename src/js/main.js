@@ -1,9 +1,6 @@
 'use strict';
 
 $(document).ready(function() {
-    var length = parseInt(httpUtils.getParam('length')) || 4;
-    ui.count(length);
-
     var users = [];
 
     var firstInput = $('input#first');
@@ -68,18 +65,44 @@ $(document).ready(function() {
 
     $('input').keyup();
 
-    $('.search-button ul.dropdown-menu a').click(function(event) {
-        length = $(event.target).data('length');
-        location.hash = 'length=' + length;
-        ui.count(length);
+    var minLength = parseInt(httpUtils.hashParam('minLength'));
+    if (!minLength) {
+        minLength = 4;
+        httpUtils.hashParam('minLength', minLength);
+    }
+
+    var maxLength = parseInt(httpUtils.hashParam('maxLength'));
+    if (!maxLength) {
+        maxLength = 4;
+        httpUtils.hashParam('maxLength', maxLength);
+    }
+
+    var radio = $('.setting-form label.btn-radio');
+
+    radio.find('input[data-min-length=' + minLength + ']').click();
+    radio.find('input[data-max-length=' + maxLength + ']').click();
+
+    radio.bind('change', function(event) {
+        var target = $(event.target);
+
+        minLength = parseInt(target.data('min-length'));
+        maxLength = parseInt(target.data('max-length'));
+        
+        if (minLength > 0) {
+            httpUtils.hashParam('minLength', minLength);
+        }
+
+        if (maxLength > 0) {
+            httpUtils.hashParam('maxLength', maxLength);
+        }
     });
 
-    $('label.btn-radio').bind('change', function(event) {
+    $('.search-result-bar label.btn-radio').bind('change', function(event) {
         ui.panel.changePanel($(event.target).data('panel'));
     });
 
     $('button#search').click(function() {
-        var depth = (length + 1) / 2;
+        var depth = (maxLength + 1) / 2;
 
         if (users[0] !== users[1]) {
             ui.progress(0);
@@ -98,7 +121,9 @@ $(document).ready(function() {
                 search.findCommonUsers(tree, options, function(users) {
                     ui.progress(80);
 
-                    search.convert(users, function(data) {
+                    search.convert(users, {
+                        minLength: minLength
+                    }, function(data) {
                         ui.progress(90);
 
                         if (data) {

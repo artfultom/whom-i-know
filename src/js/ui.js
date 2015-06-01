@@ -56,26 +56,13 @@ var ui = function() {
             return true;
         },
         searchOff: function() {
-            var button = $('.search-button button');
+            var button = $('.search-button button#startButton');
             if (button.length === 0) {
                 return false;
             }
 
             button.attr('disabled', 'disabled');
 
-            return true;
-        },
-        count: function(count) {
-            var span = $('.search-button button.dropdown-toggle span.count');
-            if (span.length === 0) {
-                return false;
-            }
-
-            if (count === undefined) {
-                return span.text();
-            }
-
-            span.text(count);
             return true;
         },
         clean: function($input) {
