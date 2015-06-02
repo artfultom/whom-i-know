@@ -85,9 +85,9 @@ $(document).ready(function() {
     radio.bind('change', function(event) {
         var target = $(event.target);
 
-        minLength = parseInt(target.data('min-length'));
-        maxLength = parseInt(target.data('max-length'));
-        
+        minLength = parseInt(target.data('min-length')) || minLength;
+        maxLength = parseInt(target.data('max-length')) || maxLength;
+
         if (minLength > 0) {
             httpUtils.hashParam('minLength', minLength);
         }
