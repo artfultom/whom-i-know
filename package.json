@@ -1,7 +1,7 @@
 {
     "name": "whom-i-know",
     "private": true,
-    "version": "0.4.2",
+    "version": "0.5.0",
     "description": "Looks for common users of vk.com",
     "repository": "",
     "license": "MIT",
