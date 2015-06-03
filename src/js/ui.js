@@ -179,7 +179,7 @@ var ui = function() {
                 return true;
             },
             count: function(data) {
-                var count = data.sequences[0] ? (data.sequences[0].length - 2) : 'до хрена';
+                var count = data.sequences[0].length - 2;
 
                 var panel = $('div.result-panels div.result-panel#count');
                 if (panel.length === 0) {
