@@ -52,16 +52,11 @@
                 <div class="row">
                     <div class="col-md-4 col-md-push-8">
                         <div class="form-group btn-group search-button">
-                            <button type="button" class="btn btn-primary" id="modal" data-toggle="modal" data-target="#startModal">Поиск</button>
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <span class="count">4</span>
-                                <span class="caret"></span>
+                            <button type="button" class="btn btn-primary" id="startButton" data-toggle="modal" data-target="#startModal">Поиск</button>
+                            <button type="button" class="btn btn-primary" id="settingButton" data-toggle="modal" data-target="#settingModal" aria-expanded="false">
+                                <span class="glyphicon glyphicon-wrench"></span>
                                 <span class="sr-only"></span>
                             </button>
-                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                <li><a data-length="4">Макс. длина цепочки: 4</a></li>
-                                <li><a data-length="5">Макс. длина цепочки: 5</a></li>
-                            </ul>
                         </div>
                     </div>
                     <div class="col-md-8 col-md-pull-4">
@@ -107,22 +102,22 @@
                     <h4 class="modal-title" id="settingModalLabel">Настройки</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="form-horizontal">
+                    <div class="form-horizontal setting-form">
                         <div class="form-group">
                             <label class="col-xs-6 control-label">Минимальная длина цепочки</label>
                             <div class="col-xs-6">
                                 <div class="btn-group btn-group-justified" role="group" data-toggle="buttons">
                                     <label class="btn btn-default btn-radio">
-                                        <input type="radio" data-min-length="2">2
-                                    </label>
-                                    <label class="btn btn-default btn-radio">
                                         <input type="radio" data-min-length="3">3
                                     </label>
-                                    <label class="btn btn-danger btn-radio">
+                                    <label class="btn btn-default btn-radio">
                                         <input type="radio" data-min-length="4">4
                                     </label>
                                     <label class="btn btn-danger btn-radio">
                                         <input type="radio" data-min-length="5">5
+                                    </label>
+                                    <label class="btn btn-danger btn-radio">
+                                        <input type="radio" data-min-length="6">6
                                     </label>
                                 </div>
                             </div>
@@ -132,16 +127,16 @@
                             <div class="col-xs-6">
                                 <div class="btn-group btn-group-justified" role="group" data-toggle="buttons">
                                     <label class="btn btn-default btn-radio">
-                                        <input type="radio" data-max-length="2">2
-                                    </label>
-                                    <label class="btn btn-default btn-radio">
                                         <input type="radio" data-max-length="3">3
                                     </label>
-                                    <label class="btn btn-danger btn-radio">
+                                    <label class="btn btn-default btn-radio">
                                         <input type="radio" data-max-length="4">4
                                     </label>
                                     <label class="btn btn-danger btn-radio">
                                         <input type="radio" data-max-length="5">5
+                                    </label>
+                                    <label class="btn btn-danger btn-radio">
+                                        <input type="radio" data-max-length="6">6
                                     </label>
                                 </div>
                             </div>
@@ -149,8 +144,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Сохранить</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
                 </div>
             </div>
         </div>
