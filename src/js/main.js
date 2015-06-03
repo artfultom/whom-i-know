@@ -67,7 +67,7 @@ $(document).ready(function() {
 
     var minLength = parseInt(httpUtils.hashParam('minLength'));
     if (!minLength) {
-        minLength = 4;
+        minLength = 3;
         httpUtils.hashParam('minLength', minLength);
     }
 
