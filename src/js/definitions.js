@@ -9,6 +9,21 @@ if (!String.prototype.format) {
     console.error('String.prototype.format already exists');
 }
 
+if (!Array.prototype.cutIntoPieces) {
+    Array.prototype.cutIntoPieces = function(pieceSize) {
+        var result = [];
+        var temp = this.slice(0);
+
+        while (temp.length > 0) {
+            result.push(temp.splice(0, pieceSize));
+        }
+
+        return result;
+    };
+} else {
+    console.error('Array.prototype.cutIntoPieces already exists');
+}
+
 var httpUtils = {
     hashParam: function(paramName, value) {
         var sPageURL = window.location.hash.substring(1);

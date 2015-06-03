@@ -53,12 +53,26 @@ var search = function() {
                     return self.indexOf(item) == pos;
                 });
 
-                $.getJSON(usersGetUrl.format(nicknames), function(result) {
-                    if (result.error) {
-                        success(false);
-                    } else {
-                        success(result.response);
-                    }
+                var pieces = nicknames.cutIntoPieces(20);
+                var count = pieces.length;
+                var users = [];
+
+                pieces.forEach(function(piece) {
+                    $.getJSON(usersGetUrl.format(piece), function(result) {
+                        if (result.error) {
+                            success(false);
+
+                            break;
+                        } else {
+                            count -= 1;
+
+                            users = users.concat(result.response);
+
+                            if (count === 0) {
+                                success(users);
+                            }
+                        }
+                    });
                 });
             }
         },
