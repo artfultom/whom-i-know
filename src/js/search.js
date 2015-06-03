@@ -61,8 +61,6 @@ var search = function() {
                     $.getJSON(usersGetUrl.format(piece), function(result) {
                         if (result.error) {
                             success(false);
-
-                            break;
                         } else {
                             count -= 1;
 
