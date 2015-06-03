@@ -236,6 +236,10 @@ var search = function() {
                 }).length === 0;
             });
 
+            sequences = sequences.sort(function(a, b) {
+                return a.length - b.length;
+            });
+
             search.getUsers(sequences, function(users) {
                 callback({
                     sequences: sequences,
