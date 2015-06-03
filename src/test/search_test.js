@@ -141,16 +141,18 @@ describe('Search methods testing...', function() {
                 [1, 2, 3, 5],
                 [1, 8, 9, 5],
                 [1, 8, 9, 5],
-                [1, 8, 9, 5]
-            ], function(result) {
+                [1, 8, 9]
+            ], {
+                minLength: 4
+            }, function(result) {
                 converted = result;
                 done();
             });
         });
 
         it('Look at converted data', function() {
-            expect(converted.sequences.length).toEqual(2);
-            expect(converted.users.length).toEqual(6);
+            expect(converted.sequences.length).toEqual(3);
+            expect(converted.users.length).toEqual(7);
         });
     });
 });
