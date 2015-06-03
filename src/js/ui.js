@@ -3,219 +3,219 @@
 var ui = function() {
     return {
         progress: function(percents) {
-            var resultBar = $('div.search-result-bar');
-            if (resultBar.length === 0) {
+            var $resultBar = $('div.search-result-bar');
+            if ($resultBar.length === 0) {
                 return false;
             }
 
-            var progressBar = resultBar.find('.progress-bar');
-            if (progressBar.length === 0) {
+            var $progressBar = $resultBar.find('.progress-bar');
+            if ($progressBar.length === 0) {
                 return false;
             }
 
             if (percents === 100) {
-                resultBar.removeClass('progress-mode');
+                $resultBar.removeClass('progress-mode');
 
-                progressBar.width(0);
+                $progressBar.width(0);
             } else {
-                resultBar.addClass('progress-mode');
+                $resultBar.addClass('progress-mode');
 
-                progressBar.width(percents + '%');
+                $progressBar.width(percents + '%');
             }
 
             return true;
         },
         notFound: function() {
-            var modal = $('#emptyModal');
-            if (modal.length === 0) {
+            var $modal = $('#emptyModal');
+            if ($modal.length === 0) {
                 return false;
             }
 
-            modal.modal();
+            $modal.modal();
 
             return true;
         },
         enableModes: function() {
-            var buttons = $('div.search-result-bar label.btn');
-            if (buttons.length === 0) {
+            var $buttons = $('div.search-result-bar label.btn');
+            if ($buttons.length === 0) {
                 return false;
             }
 
-            buttons.removeClass('disabled');
+            $buttons.removeClass('disabled');
 
             return true;
         },
         searchOn: function() {
-            var button = $('.search-button button');
-            if (button.length === 0) {
+            var $button = $('.search-button button');
+            if ($button.length === 0) {
                 return false;
             }
 
-            button.removeAttr('disabled');
+            $button.removeAttr('disabled');
 
             return true;
         },
         searchOff: function() {
-            var button = $('.search-button button#startButton');
-            if (button.length === 0) {
+            var $button = $('.search-button button#startButton');
+            if ($button.length === 0) {
                 return false;
             }
 
-            button.attr('disabled', 'disabled');
+            $button.attr('disabled', 'disabled');
 
             return true;
         },
         clean: function($input) {
-            var container = $input.closest('div.has-feedback');
-            if (container.length === 0) {
+            var $container = $input.closest('div.has-feedback');
+            if ($container.length === 0) {
                 return false;
             }
 
-            container.removeClass('has-success');
-            container.removeClass('has-error');
+            $container.removeClass('has-success');
+            $container.removeClass('has-error');
 
-            var icon = container.find('span.glyphicon');
-            if (icon.length === 0) {
+            var $icon = $container.find('span.glyphicon');
+            if ($icon.length === 0) {
                 return false;
             }
 
-            icon.removeClass('glyphicon-ok');
-            icon.removeClass('glyphicon-remove');
-            icon.removeClass('glyphicon-refresh');
+            $icon.removeClass('glyphicon-ok');
+            $icon.removeClass('glyphicon-remove');
+            $icon.removeClass('glyphicon-refresh');
 
-            var username = container.find('.feedback-user-name');
-            if (username.length === 0) {
+            var $username = $container.find('.feedback-user-name');
+            if ($username.length === 0) {
                 return false;
             }
 
-            username.text('');
+            $username.text('');
 
             return true;
         },
         correct: function($input, name) {
-            var container = $input.closest('div.has-feedback');
-            if (container.length === 0) {
+            var $container = $input.closest('div.has-feedback');
+            if ($container.length === 0) {
                 return false;
             }
 
-            container.addClass('has-success');
-            container.removeClass('has-error');
+            $container.addClass('has-success');
+            $container.removeClass('has-error');
 
-            var icon = container.find('span.glyphicon');
-            if (icon.length === 0) {
+            var $icon = $container.find('span.glyphicon');
+            if ($icon.length === 0) {
                 return false;
             }
 
-            icon.addClass('glyphicon-ok');
-            icon.removeClass('glyphicon-remove');
-            icon.removeClass('glyphicon-refresh');
+            $icon.addClass('glyphicon-ok');
+            $icon.removeClass('glyphicon-remove');
+            $icon.removeClass('glyphicon-refresh');
 
-            var username = container.find('.feedback-user-name');
-            if (username.length === 0) {
+            var $username = $container.find('.feedback-user-name');
+            if ($username.length === 0) {
                 return false;
             }
 
-            username.text(name);
+            $username.text(name);
 
             return true;
         },
         incorrect: function($input) {
-            var container = $input.closest('div.has-feedback');
-            if (container.length === 0) {
+            var $container = $input.closest('div.has-feedback');
+            if ($container.length === 0) {
                 return false;
             }
 
-            container.addClass('has-error');
-            container.removeClass('has-success');
+            $container.addClass('has-error');
+            $container.removeClass('has-success');
 
-            var icon = container.find('span.glyphicon');
-            if (icon.length === 0) {
+            var $icon = $container.find('span.glyphicon');
+            if ($icon.length === 0) {
                 return false;
             }
 
-            icon.addClass('glyphicon-remove');
-            icon.removeClass('glyphicon-ok');
-            icon.removeClass('glyphicon-refresh');
+            $icon.addClass('glyphicon-remove');
+            $icon.removeClass('glyphicon-ok');
+            $icon.removeClass('glyphicon-refresh');
 
-            var username = container.find('.feedback-user-name');
-            if (username.length === 0) {
+            var $username = $container.find('.feedback-user-name');
+            if ($username.length === 0) {
                 return false;
             }
 
-            username.text('');
+            $username.text('');
 
             return true;
         },
         lookForUser: function($input) {
-            var container = $input.closest('div.has-feedback');
-            if (container.length === 0) {
+            var $container = $input.closest('div.has-feedback');
+            if ($container.length === 0) {
                 return false;
             }
 
-            container.removeClass('has-success');
-            container.removeClass('has-error');
+            $container.removeClass('has-success');
+            $container.removeClass('has-error');
 
-            var icon = container.find('span.glyphicon');
-            if (icon.length === 0) {
+            var $icon = $container.find('span.glyphicon');
+            if ($icon.length === 0) {
                 return false;
             }
 
-            icon.addClass('glyphicon-refresh');
-            icon.removeClass('glyphicon-ok');
-            icon.removeClass('glyphicon-remove');
+            $icon.addClass('glyphicon-refresh');
+            $icon.removeClass('glyphicon-ok');
+            $icon.removeClass('glyphicon-remove');
 
             return true;
         },
         panel: {
             changePanel: function(panelName) {
-                var panel = $('div.result-panels div.result-panel#' + panelName);
-                if (panel.length === 0) {
+                var $panel = $('div.result-panels div.result-panel#' + panelName);
+                if ($panel.length === 0) {
                     return false;
                 }
 
                 $('div.result-panels div.result-panel').removeClass('active');
-                panel.addClass('active');
+                $panel.addClass('active');
 
                 return true;
             },
             count: function(data) {
                 var count = data.sequences[0].length - 2;
 
-                var panel = $('div.result-panels div.result-panel#count');
-                if (panel.length === 0) {
+                var $panel = $('div.result-panels div.result-panel#count');
+                if ($panel.length === 0) {
                     return false;
                 }
 
-                panel.empty();
+                $panel.empty();
 
-                var zeroRow = $('<div>');
-                zeroRow.addClass('empty-row');
+                var $zeroRow = $('<div>');
+                $zeroRow.addClass('empty-row');
 
-                var firstRow = $('<div>');
+                var $firstRow = $('<div>');
 
                 $.each(Array(count), function() {
-                    var icon = $('<span>');
-                    icon.addClass('glyphicon glyphicon-user count-icon');
+                    var $icon = $('<span>');
+                    $icon.addClass('glyphicon glyphicon-user count-icon');
 
-                    firstRow.append(icon);
+                    $firstRow.append($icon);
                 });
 
-                var secondRow = $('<div>');
+                var $secondRow = $('<div>');
 
                 var usersStr = String(count).slice(-1) === '1' ? 'пользователя' : 'пользователей';
-                secondRow.append('<span>Вы знакомы через ' + count + ' ' + usersStr + '</span>');
+                $secondRow.append('<span>Вы знакомы через ' + count + ' ' + usersStr + '</span>');
 
-                panel.append(zeroRow, firstRow, secondRow);
+                $panel.append($zeroRow, $firstRow, $secondRow);
 
                 return true;
             },
             write: function(data) {
-                var group = $('div.result-panels div.result-panel ul.list-group');
-                if (group.length === 0) {
+                var $group = $('div.result-panels div.result-panel ul.list-group');
+                if ($group.length === 0) {
                     return false;
                 }
 
-                group.find('li.list-group-item').remove();
+                $group.find('li.list-group-item').remove();
 
                 data.sequences.forEach(function(row) {
                     row = row.map(function(id) {
@@ -224,10 +224,10 @@ var ui = function() {
                         })[0];
                     });
 
-                    var li = $('<li class="list-group-item">');
+                    var $li = $('<li class="list-group-item">');
 
-                    var table = $('<div class="item-row">');
-                    li.append(table);
+                    var $table = $('<div class="item-row">');
+                    $li.append($table);
 
                     row.forEach(function(user) {
                         var title = 'title="<img src={0}><div>Пол: {1}</div><div>ДР: {2}</div></div>"'.format(
@@ -238,28 +238,28 @@ var ui = function() {
 
                         var href = 'href="http://vk.com/id{0}"'.format(user.uid);
 
-                        var cell = $('<div class="item-cell">');
+                        var $cell = $('<div class="item-cell">');
 
-                        cell.append('<a target="_blank" ' + title + ' ' + href + '>' + [user.first_name, user.last_name].join(' ') + '</a>');
-                        table.append(cell);
+                        $cell.append('<a target="_blank" ' + title + ' ' + href + '>' + [user.first_name, user.last_name].join(' ') + '</a>');
+                        $table.append($cell);
                     });
 
-                    group.append(li);
+                    $group.append($li);
                 });
 
-                group.find('[title]').tooltip({
+                $group.find('[title]').tooltip({
                     html: true
                 });
 
                 return true;
             },
             draw: function(data) {
-                var panel = $('div.result-panels div.result-panel#draw');
-                if (panel.length === 0) {
+                var $panel = $('div.result-panels div.result-panel#draw');
+                if ($panel.length === 0) {
                     return false;
                 }
 
-                panel.empty();
+                $panel.empty();
 
                 var firstUser, secondUser;
                 var sequence = data.sequences[0];
@@ -313,7 +313,7 @@ var ui = function() {
                     });
                 });
 
-                var width = panel.closest('.container').width(),
+                var width = $panel.closest('.container').width(),
                     height = width * 0.5;
 
                 var force = d3.layout.force()
@@ -380,10 +380,10 @@ var ui = function() {
                         return d.label;
                     });
 
-                var container = panel.closest('.container');
+                var $container = $panel.closest('.container');
 
                 setInterval(function() {
-                    width = container.width();
+                    width = $container.width();
                     height = width * 0.5;
 
                     force.size([width, height]);

@@ -3,19 +3,19 @@
 $(document).ready(function() {
     var users = [];
 
-    var firstInput = $('input#first');
-    firstInput.bind('keyup', function(value) {
-        ui.lookForUser(firstInput);
+    var $firstInput = $('input#first');
+    $firstInput.bind('keyup', function(value) {
+        ui.lookForUser($firstInput);
 
         search.getUsers(value.target.value, function(user) {
             switch(user) {
                 case false: 
-                    ui.incorrect(firstInput);
+                    ui.incorrect($firstInput);
 
                     users[0] = undefined;
                     break;
                 default:
-                    ui.correct(firstInput, [user[0].first_name, user[0].last_name].join(' '));
+                    ui.correct($firstInput, [user[0].first_name, user[0].last_name].join(' '));
 
                     users[0] = value.target.value;
             }
@@ -27,25 +27,25 @@ $(document).ready(function() {
             }
         }, function() {
             ui.searchOff();
-            ui.clean(firstInput);
+            ui.clean($firstInput);
 
             users[0] = undefined;
         });
     });
 
-    var secondInput = $('input#second');
-    secondInput.bind('keyup', function(value) {
-        ui.lookForUser(secondInput);
+    var $secondInput = $('input#second');
+    $secondInput.bind('keyup', function(value) {
+        ui.lookForUser($secondInput);
         
         search.getUsers(value.target.value, function(user) {
             switch(user) {
                 case false: 
-                    ui.incorrect(secondInput);
+                    ui.incorrect($secondInput);
 
                     users[1] = undefined;
                     break;
                 default:
-                    ui.correct(secondInput, [user[0].first_name, user[0].last_name].join(' '));
+                    ui.correct($secondInput, [user[0].first_name, user[0].last_name].join(' '));
 
                     users[1] = value.target.value;
             }
@@ -57,7 +57,7 @@ $(document).ready(function() {
             }
         }, function() {
             ui.searchOff();
-            ui.clean(secondInput);
+            ui.clean($secondInput);
 
             users[1] = undefined;
         });
@@ -77,12 +77,12 @@ $(document).ready(function() {
         httpUtils.hashParam('maxLength', maxLength);
     }
 
-    var radio = $('.setting-form label.btn-radio');
+    var $radio = $('.setting-form label.btn-radio');
 
-    radio.find('input[data-min-length=' + minLength + ']').click();
-    radio.find('input[data-max-length=' + maxLength + ']').click();
+    $radio.find('input[data-min-length=' + minLength + ']').click();
+    $radio.find('input[data-max-length=' + maxLength + ']').click();
 
-    radio.bind('change', function(event) {
+    $radio.bind('change', function(event) {
         var target = $(event.target);
 
         minLength = parseInt(target.data('min-length')) || minLength;
