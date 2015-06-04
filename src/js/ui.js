@@ -2,6 +2,96 @@
 
 var ui = function() {
     return {
+        minLength: function(value) {
+            if (value === undefined) {
+                return $('label.btn-radio.active [data-min-length]').data('min-length');
+            }
+
+            var $mins = $('label.btn-radio [data-min-length]');
+            if ($mins.length === 0) {
+                return false;
+            }
+
+            var $maxs = $('label.btn-radio [data-max-length]');
+            if ($maxs.length === 0) {
+                return false;
+            }
+
+            $mins.each(function(index, item) {
+                var $item = $(item);
+                var minLength = $item.data('min-length') >> 0;
+
+                if (minLength === value) {
+                    $item.closest('label').addClass('active');
+                }
+            });
+
+            $maxs.each(function(index, item) {
+                var $item = $(item);
+                var $label = $item.closest('label');
+
+                var maxLength = $item.data('max-length') >> 0;
+
+                if (maxLength < value) {
+                    $label.addClass('disabled');
+
+                    if ($label.hasClass('active')) {
+                        $label.removeClass('active');
+
+                        $('label.btn-radio [data-max-length=' + value + ']').closest('label').addClass('active');
+                    }
+                } else {
+                    $label.removeClass('disabled');
+                }
+            });
+
+            return true;
+        },
+        maxLength: function(value) {
+            if (value === undefined) {
+                return $('label.btn-radio.active [data-max-length]').data('max-length');
+            }
+
+            var $mins = $('label.btn-radio [data-min-length]');
+            if ($mins.length === 0) {
+                return false;
+            }
+
+            var $maxs = $('label.btn-radio [data-max-length]');
+            if ($maxs.length === 0) {
+                return false;
+            }
+
+            $maxs.each(function(index, item) {
+                var $item = $(item);
+                var maxLength = $item.data('max-length') >> 0;
+
+                if (maxLength === value) {
+                    $item.closest('label').addClass('active');
+                }
+            });
+
+            $mins.each(function(index, item) {
+                var $item = $(item);
+                var $label = $item.closest('label');
+
+                var minLength = $item.data('min-length') >> 0;
+
+                if (minLength > value) {
+                    $label.addClass('disabled');
+
+                    if ($label.hasClass('active')) {
+                        $label.removeClass('active');
+
+                        $('label.btn-radio [data-min-length=' + value + ']').closest('label').addClass('active');
+                    }
+                } else {
+                    $label.removeClass('disabled');
+                }
+            });
+
+            return true;
+        },
         progress: function(percents) {
             var $resultBar = $('div.search-result-bar');
             if ($resultBar.length === 0) {
