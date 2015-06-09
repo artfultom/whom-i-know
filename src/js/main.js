@@ -1,6 +1,25 @@
 'use strict';
 
 $(document).ready(function() {
+    var initOptions = {};
+
+    var minLength = httpUtils.hashParam('minLength') >> 0;
+    if (!minLength) {
+        minLength = 3;
+        httpUtils.hashParam('minLength', minLength);
+    }
+
+    var maxLength = httpUtils.hashParam('maxLength') >> 0;
+    if (!maxLength) {
+        maxLength = 4;
+        httpUtils.hashParam('maxLength', maxLength);
+    }
+
+    ui.init({
+        min: minLength, 
+        max: maxLength
+    });
+
     var users = [];
 
     var $firstInput = $('input#first');
@@ -65,36 +84,12 @@ $(document).ready(function() {
 
     $('input').keyup();
 
-    var minLength = parseInt(httpUtils.hashParam('minLength'));
-    if (!minLength) {
-        minLength = 3;
+    $('div.slider#length').change(function(event, value) {
+        minLength = value[0] >> 0;
+        maxLength = value[1] >> 0;
+
         httpUtils.hashParam('minLength', minLength);
-    }
-
-    var maxLength = parseInt(httpUtils.hashParam('maxLength'));
-    if (!maxLength) {
-        maxLength = 4;
         httpUtils.hashParam('maxLength', maxLength);
-    }
-
-    var $radio = $('.setting-form label.btn-radio');
-
-    $radio.find('input[data-min-length=' + minLength + ']').click();
-    $radio.find('input[data-max-length=' + maxLength + ']').click();
-
-    $radio.bind('change', function(event) {
-        var target = $(event.target);
-
-        minLength = parseInt(target.data('min-length')) || minLength;
-        maxLength = parseInt(target.data('max-length')) || maxLength;
-
-        if (minLength > 0) {
-            httpUtils.hashParam('minLength', minLength);
-        }
-
-        if (maxLength > 0) {
-            httpUtils.hashParam('maxLength', maxLength);
-        }
     });
 
     $('.search-result-bar label.btn-radio').bind('change', function(event) {

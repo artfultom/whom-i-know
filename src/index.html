@@ -11,6 +11,8 @@
     <!-- build:css_lib css/libs1.min.css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="bower_components/nouislider/distribute/jquery.nouislider.min.css">
+    <link rel="stylesheet" href="bower_components/nouislider/distribute/jquery.nouislider.pips.min.css">
     <!-- endbuild -->
     <!-- build:css_lib_min css/libs2.min.css -->
     <link rel="stylesheet" href="bower_components/github-fork-ribbon-css/gh-fork-ribbon.css" />
@@ -105,42 +107,11 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-horizontal setting-form">
+                        <label class="control-label">Длина цепочки</label>
+
                         <div class="form-group">
-                            <label class="col-xs-6 control-label">Минимальная длина цепочки</label>
-                            <div class="col-xs-6">
-                                <div class="btn-group btn-group-justified" role="group" data-toggle="buttons">
-                                    <label class="btn btn-default btn-radio">
-                                        <input type="radio" data-min-length="3">3
-                                    </label>
-                                    <label class="btn btn-default btn-radio">
-                                        <input type="radio" data-min-length="4">4
-                                    </label>
-                                    <label class="btn btn-danger btn-radio">
-                                        <input type="radio" data-min-length="5">5
-                                    </label>
-                                    <label class="btn btn-danger btn-radio">
-                                        <input type="radio" data-min-length="6">6
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-xs-6 control-label">Максимальная длина цепочки</label>
-                            <div class="col-xs-6">
-                                <div class="btn-group btn-group-justified" role="group" data-toggle="buttons">
-                                    <label class="btn btn-default btn-radio">
-                                        <input type="radio" data-max-length="3">3
-                                    </label>
-                                    <label class="btn btn-default btn-radio">
-                                        <input type="radio" data-max-length="4">4
-                                    </label>
-                                    <label class="btn btn-danger btn-radio">
-                                        <input type="radio" data-max-length="5">5
-                                    </label>
-                                    <label class="btn btn-danger btn-radio">
-                                        <input type="radio" data-max-length="6">6
-                                    </label>
-                                </div>
+                            <div class="col-xs-12">
+                                <div id="length" class="slider"></div>
                             </div>
                         </div>
                     </div>
@@ -194,6 +165,7 @@
 
     <!-- build:js_lib js/libs.min.js -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/nouislider/distribute/jquery.nouislider.all.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/d3/d3.min.js"></script>
     <!-- endbuild -->

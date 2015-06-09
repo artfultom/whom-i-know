@@ -40,9 +40,13 @@ text {
     min-width: 350px;
 }
 
-.modal-dialog {
+.modal-dialog .modal-dialog {
     min-width: 330px;
     margin: 30px 10px;
+}
+
+.slider {
+    margin: 15px 10px 30px 10px;
 }
 
 .feedback {
@@ -181,14 +185,6 @@ div.search-result-bar.progress-mode div.btn-group {
     }
     to {
         transform: rotate(360deg);
-    }
-}
-
-@media (min-width: 400px) {
-    .form-horizontal .control-label {
-        margin-bottom: 0;
-        padding-top: 7px;
-        text-align: right;
     }
 }
 

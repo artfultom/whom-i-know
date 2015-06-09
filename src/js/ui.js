@@ -2,95 +2,42 @@
 
 var ui = function() {
     return {
-        minLength: function(value) {
-            if (value === undefined) {
-                return $('label.btn-radio.active [data-min-length]').data('min-length');
-            }
-
-            var $mins = $('label.btn-radio [data-min-length]');
-            if ($mins.length === 0) {
+        init: function(options) {
+            var $slider = $('div.slider');
+            if ($slider.length === 0) {
                 return false;
             }
 
-            var $maxs = $('label.btn-radio [data-max-length]');
-            if ($maxs.length === 0) {
-                return false;
-            }
-
-            $mins.each(function(index, item) {
-                var $item = $(item);
-                var minLength = $item.data('min-length') >> 0;
-
-                if (minLength === value) {
-                    $item.closest('label').addClass('active');
+            $slider.noUiSlider({
+                start: [options.min || 4, options.max || 5],
+                step: 1,
+                connect: true,
+                
+                range: {
+                    min: 3,
+                    max: 8
                 }
             });
 
-            $maxs.each(function(index, item) {
-                var $item = $(item);
-                var $label = $item.closest('label');
-
-                var maxLength = $item.data('max-length') >> 0;
-
-                if (maxLength < value) {
-                    $label.addClass('disabled');
-
-                    if ($label.hasClass('active')) {
-                        $label.removeClass('active');
-
-                        $('label.btn-radio [data-max-length=' + value + ']').closest('label').addClass('active');
-                    }
-                } else {
-                    $label.removeClass('disabled');
-                }
+            $slider.noUiSlider_pips({
+                mode: 'steps',
+                density: 20
             });
-
-            return true;
         },
-        maxLength: function(value) {
-            if (value === undefined) {
-                return $('label.btn-radio.active [data-max-length]').data('max-length');
-            }
-
-            var $mins = $('label.btn-radio [data-min-length]');
-            if ($mins.length === 0) {
+        length: function(value) {
+            var $slider = $('div.slider');
+            if ($slider.length === 0) {
                 return false;
             }
 
-            var $maxs = $('label.btn-radio [data-max-length]');
-            if ($maxs.length === 0) {
-                return false;
+            if (!value) {
+                return {
+                    max: $slider.val()[1] >> 0,
+                    min: $slider.val()[0] >> 0
+                }
             }
 
-            $maxs.each(function(index, item) {
-                var $item = $(item);
-                var maxLength = $item.data('max-length') >> 0;
-
-                if (maxLength === value) {
-                    $item.closest('label').addClass('active');
-                }
-            });
-
-            $mins.each(function(index, item) {
-                var $item = $(item);
-                var $label = $item.closest('label');
-
-                var minLength = $item.data('min-length') >> 0;
-
-                if (minLength > value) {
-                    $label.addClass('disabled');
-
-                    if ($label.hasClass('active')) {
-                        $label.removeClass('active');
-
-                        $('label.btn-radio [data-min-length=' + value + ']').closest('label').addClass('active');
-                    }
-                } else {
-                    $label.removeClass('disabled');
-                }
-            });
-
-            return true;
+            $slider.val([value.min, value.max]);
         },
         progress: function(percents) {
             var $resultBar = $('div.search-result-bar');
