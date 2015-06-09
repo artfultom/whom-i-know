@@ -47,7 +47,7 @@ gulp.task('build', function () {
             }
         }))
         .pipe(usemin({
-            css: [minifyCss({relativeTo: '..'})],
+            css: [minifyCss({relativeTo: '.'})],
             js: [uglify()],
             css_lib: [],
             css_lib_min: [minifyCss()],
