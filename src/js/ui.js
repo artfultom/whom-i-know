@@ -9,13 +9,13 @@ var ui = function() {
             }
 
             $slider.noUiSlider({
-                start: [options.min || 4, options.max || 5],
+                start: [options.min || 3, options.max || 4],
                 step: 1,
                 connect: true,
                 
                 range: {
                     min: 3,
-                    max: 8
+                    max: 7
                 }
             });
 
