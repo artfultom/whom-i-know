@@ -47,12 +47,10 @@ gulp.task('build', function () {
             }
         }))
         .pipe(usemin({
-            css: [minifyCss({relativeTo: '.'})],
+            css: [minifyCss()],
             js: [uglify()],
-            css_lib: [],
-            css_lib_min: [minifyCss()],
-            js_lib: [],
-            js_lib_min: [uglify()]
+            css_lib: [minifyCss()],
+            js_lib: [uglify()]
         }))
         .pipe(gulp.dest('dist/'));
 
