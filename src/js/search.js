@@ -46,7 +46,7 @@ var search = function() {
                 error();
             } else {
                 nicknames = nicknames.toString().split(',').map(function(id) {
-                    return Number(id) || id;
+                    return id >> 0 || id;
                 });
 
                 nicknames = nicknames.filter(function(item, pos, self) {
