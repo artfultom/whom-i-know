@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-    minifyCss = require('gulp-minify-css'),
+    cssmin = require('gulp-cssmin'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
     del = require('del'),
@@ -47,9 +47,9 @@ gulp.task('build', function () {
             }
         }))
         .pipe(usemin({
-            css: [minifyCss()],
+            css: [cssmin()],
             js: [uglify()],
-            css_lib: [minifyCss()],
+            css_lib: [cssmin()],
             js_lib: [uglify()]
         }))
         .pipe(gulp.dest('dist/'));
