@@ -66,6 +66,7 @@ text {
 .feedback-user-name {
     right: 34px;
     opacity: 0.2;
+    pointer-events: none;
 }
 
 .has-feedback.has-success span {
