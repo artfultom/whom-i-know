@@ -46,6 +46,12 @@ gulp.task('build', function () {
                 return file.contents.toString('utf8');
             }
         }))
+        .pipe(inject(gulp.src(['src/share.html']), {
+            starttag: '<!-- inject:share -->',
+            transform: function (filePath, file) {
+                return file.contents.toString('utf8');
+            }
+        }))
         .pipe(usemin({
             css: [cssmin()],
             js: [uglify()],
