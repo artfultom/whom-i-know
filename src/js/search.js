@@ -1,8 +1,8 @@
 'use strict';
 
 var search = function() {
-    var usersGetUrl = 'https://api.vk.com/method/users.get?uids={0}&fields=sex,bdate,photo_100,education&callback=?';
-    var friendsGetUrl = 'https://api.vk.com/method/friends.get?user_id={0}&callback=?';
+    var usersGetUrl = 'https://api.vk.com/method/users.get?v=fuckvk&uids={0}&fields=sex,bdate,photo_100,education&callback=?';
+    var friendsGetUrl = 'https://api.vk.com/method/friends.get?v=fuckvk&user_id={0}&callback=?';
 
     var newTree = function() {
         return new(function() {
