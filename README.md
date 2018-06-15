@@ -16,3 +16,6 @@ $ npm start
 ```
 $ gulp
 ```
+
+# UPDATE!
+I think that all the smart people left the VK company. Now other staff members are breaking the API. There isn't a compatibility with the previous versions. I don't have any spare time and I don't want to fix this one. Fuck MailRu Group!
